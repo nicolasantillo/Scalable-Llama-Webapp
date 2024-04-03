@@ -1,0 +1,23 @@
+#version: '3.8'
+
+services:
+  llama_webapp:
+      image: 127.0.0.1:5000/llama-webapp-img
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - 7860:7860
+      #volumes:
+      #- ./llama_cpu_webapp.py:/app/llama_cpu_webapp.py
+      # Uncomment the line below if you have the llama-2-7b-chat.Q2_K.gguf file
+      # - ./llama-2-7b-chat.Q2_K.gguf:/app/llama-2-7b-chat.Q2_K.gguf
+      #- model:/app
+
+#volumes:
+#  model:
+#    driver: local
+#    driver_opts: 
+#      type: none 
+#      device: . *(sostituire con path assoluto se da distribuire agli altri nodi)
+#      o: bind
