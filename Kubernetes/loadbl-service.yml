@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: loadbl
+spec:
+  type: LoadBalancer
+  selector:
+    app: llama-webapp
+    svc: loadbl
+  ports:
+  - port: 80

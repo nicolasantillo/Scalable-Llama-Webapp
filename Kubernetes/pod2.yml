@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: llama-webapp2
+  labels:
+    app: llama-webapp2
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: llama-worker2
+  containers:
+  - name: llama-webapp
+    image: llama-webapp-img:latest
+    imagePullPolicy: IfNotPresent
+    ports:
+      - containerPort: 7860
+    volumeMounts:
+      - name: llama-vol
+        mountPath: /app
+  volumes:
+    - name: llama-vol
+      hostPath:
+        path: /app

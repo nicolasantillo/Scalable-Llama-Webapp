@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama-webapp-service-2
+  labels:
+    app: llama-webapp2
+spec:
+  selector:
+    app: llama-webapp2
+  ports:
+    - name: http
+      protocol: TCP
+      port: 7860  # Adjust the port as needed
+      targetPort: 7860  # Adjust the target port as needed
+  type: ClusterIP  # Adjust the service type as needed
